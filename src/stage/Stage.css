@@ -1,0 +1,11 @@
+.songs-stage {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  row-gap: 30px;
+  position: relative;
+  flex-grow: 1;
+  max-width: 800px;
+  align-self: flex-start;
+  padding: 12px;
+}

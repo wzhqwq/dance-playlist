@@ -1,0 +1,34 @@
+.pypy-song-entry {
+  display: flex;
+  background-color: #222;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+.pypy-song-info {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4px;
+}
+.pypy-song-id {
+  color: #888;
+  font-size: 12px;
+}
+.pypy-song-group {
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.pypy-song-name {
+  grid-column: 1 / span 2;
+  min-width: 0;
+  font-size: 14px;
+}
+.pypy-song-action {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}

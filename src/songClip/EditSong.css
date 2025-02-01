@@ -1,0 +1,13 @@
+.song-form {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 8px;
+}
+
+.timestamp {
+  display: flex;
+  gap: 8px;
+}
+.timestamp input {
+  min-width: 0;
+}

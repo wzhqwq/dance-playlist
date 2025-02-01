@@ -1,0 +1,12 @@
+.pypy-search {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 300px;
+}
+
+.pypy-songs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
