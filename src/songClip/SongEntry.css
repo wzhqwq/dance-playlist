@@ -13,6 +13,7 @@
   width: 4px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  flex-shrink: 0;
 }
 .song-entry.active .group-stride {
   width: 8px;

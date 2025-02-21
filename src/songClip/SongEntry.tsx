@@ -3,7 +3,7 @@ import cx from "classnames"
 
 import "./SongEntry.css"
 import { convertToTimestamp, Song } from "../song"
-import { FaCircleMinus } from "react-icons/fa6"
+import { FaCircleMinus, FaCopy } from "react-icons/fa6"
 
 export interface SongEntryProps {
   song: Song
@@ -19,6 +19,13 @@ export function SongEntry({ song, onDelete, onClick, selected }: SongEntryProps)
       <div className="song-entry-info">
         {groupShortMap[song.group] && `[${groupShortMap[song.group]}]`}
         {song.title}
+        <FaCopy
+          onClick={() => {
+            navigator.clipboard.writeText(
+              (groupShortMap[song.group] ? `[${groupShortMap[song.group]}]` : "") + song.title
+            )
+          }}
+        />
       </div>
       <div className="song-entry-duration">
         <span>{convertToTimestamp(song.startTimestamp)}</span>

@@ -4,7 +4,7 @@ import { EditSong } from "./EditSong"
 import { nanoid } from "nanoid"
 import { Song } from "../song"
 import { useAtom } from "jotai"
-import { animationTypeAtom, songClipAtom } from "../atoms"
+import { animationModeAtom, animationTypeAtom, songClipAtom } from "../atoms"
 
 import "./SongClip.css"
 
@@ -12,6 +12,7 @@ export function SongClip() {
   const [selectedSong, setSelectedSong] = useState<Song | null>(null)
   const [songs, setSongs] = useAtom(songClipAtom)
   const [animationType, setAnimationType] = useAtom(animationTypeAtom)
+  const [animationMode, setAnimationMode] = useAtom(animationModeAtom)
 
   const pushSong = () => {
     const newSong: Song = {
@@ -57,7 +58,7 @@ export function SongClip() {
         return null
       })
       .filter(Boolean) as Song[]
-    setSongs(newSongs)
+    setSongs(songs => [...songs, ...newSongs])
   }
 
   return (
@@ -71,12 +72,27 @@ export function SongClip() {
         }
       }}
     >
-      <select value={animationType} onChange={e => setAnimationType(parseInt(e.target.value))}>
-        <option value={0}>No Animation</option>
-        <option value={1}>Show Up</option>
-        <option value={2}>Hide</option>
-        <option value={3}>Each</option>
-      </select>
+      <div className="songs-header">
+        <select
+          value={animationType}
+          onChange={e => setAnimationType(e.target.value as "none" | "show-hide" | "show-each")}
+        >
+          <option value="none">无动画</option>
+          <option value="show-hide">展示总览</option>
+          <option value="show-each">逐个报幕</option>
+        </select>
+        {animationType !== "none" && (
+          <>
+            <button onClick={() => setAnimationMode("preview")}>
+              {animationMode == "preview" ? "Preview Playing" : "Preview"}
+            </button>
+            <button onClick={() => setAnimationMode("record")}>
+              {animationMode == "record" ? "Recording" : "Record"}
+            </button>
+          </>
+        )}
+      </div>
+
       {selectedSong && (
         <EditSong
           song={selectedSong}
@@ -90,6 +106,7 @@ export function SongClip() {
               lastEnd = s.endTimestamp
             })
             setSongs(newSongs)
+            setSelectedSong(song)
           }}
         />
       )}
