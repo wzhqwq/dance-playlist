@@ -100,6 +100,9 @@
 .group-lr {
   background: linear-gradient(90deg, #945388 0%, #8e9bbc 100%);
 }
+.group-ba {
+  background: linear-gradient(90deg, #b53062 0%, #e25088 80%, #eacbda 100%);
+}
 .group-other {
   background: rgb(107, 107, 107);
 }
@@ -124,6 +127,9 @@
 }
 .light .group-lr {
   background: linear-gradient(90deg, #edcee7 0%, #c6d1eb 100%);
+}
+.light .group-ba {
+  background: linear-gradient(90deg, #ff9dbf 0%, #ffbad2 100%);
 }
 .light .group-other {
   background: rgb(199, 199, 199);
