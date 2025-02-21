@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { SongBlock } from "./SongBlock"
 import cx from "classnames"
 import { useAtom, useAtomValue } from "jotai"
@@ -40,6 +40,7 @@ export function Stage() {
               frameRate: 30,
             },
             audio: false,
+            // @ts-expect-error outdated type definition
             preferCurrentTab: true,
           })
           // const [track] = stream.getTracks()

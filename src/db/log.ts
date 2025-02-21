@@ -1,6 +1,6 @@
 import { fetchPyPySongs } from "../pypy/api"
-import { SongOrder } from "./record"
 import { findSong } from "./song"
+import { SongOrder } from "./types"
 
 // 2025.02.09 16:15:28 Log        -  [VRCX] VideoPlay(PyPyDance) "http://jd.pypy.moe/api/v1/videos/4068.mp4",0,213,"4068 : [KPOP] NCT DREAM - When I’m With You (soney113)"
 // $1: time, $2: roomName, $3: url, $4: startTime, $5: endTime, $6: title

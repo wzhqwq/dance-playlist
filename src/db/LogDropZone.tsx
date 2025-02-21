@@ -3,7 +3,7 @@ import cx from "classnames"
 
 import "./LogDropZone.css"
 import { parseLog } from "./log"
-import { SongOrder } from "./record"
+import { SongOrder } from "./types"
 
 export interface LogDropZoneProps {
   onDrop: (result: SongOrder[], date: Date) => void

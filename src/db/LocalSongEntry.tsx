@@ -12,13 +12,12 @@ import {
 } from "react-icons/fa6"
 import { PiMicrophoneStageFill } from "react-icons/pi"
 import { groupColorMap, groupShortMap } from "../group"
-import { LocalSong } from "./song"
 import { useMemo, useState } from "react"
-import { SongOrder } from "./record"
 import { useAtom, useSetAtom } from "jotai"
 import { playingVideoSrcAtom, songClipAtom } from "../atoms"
 import { EditLocalSong } from "./EditLocalSong"
 import { Song } from "../song"
+import { LocalSong, SongOrder } from "./types"
 
 import "./LocalSongEntry.css"
 

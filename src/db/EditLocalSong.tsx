@@ -8,9 +8,10 @@ import {
   FaYoutube,
 } from "react-icons/fa6"
 import { groupColorMap } from "../group"
-import { LocalSong, saveSong, updateSong } from "./song"
+import { saveSong, updateSong } from "./song"
 import { useEffect, useMemo } from "react"
 import { Control, useController, useForm, useWatch } from "react-hook-form"
+import { LocalSong } from "./types"
 import cx from "classnames"
 
 import "./EditLocalSong.css"
