@@ -100,7 +100,7 @@ export async function fetchPyPySongs() {
       queryKey: ["songs"],
       queryFn: getSongs,
       gcTime: Infinity,
-      staleTime: Infinity,
+      staleTime: 3600 * 1000,
     })
   }
   return songs

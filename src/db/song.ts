@@ -1,33 +1,30 @@
-import dbManager from "./indexedDb"
-
-export interface LocalSong {
-  title: string
-  group: string
-  artist: string
-  videoUrl: string
-  youtubeUrl: string
-
-  id: string
-
-  bpm: number
-
-  practiceCount: number
-  proficiency: number
-
-  isNonLocal?: boolean
-}
+import db from "./db"
+import { LocalSong } from "./types"
 
 export function findSong(id: string) {
   // in indexedDB
-  return dbManager.findById<LocalSong>('songs', id)
+  return db.songs.get(id)
 }
 
 export function saveSong(song: LocalSong) {
   // save using indexedDB
-  return dbManager.add('songs', song)
+  return db.songs.add(song)
 }
 
 export function updateSong(song: LocalSong) {
   // save using indexedDB
-  return dbManager.update('songs', song)
+  return db.songs.update(song.id, song)
+}
+
+export function listSongs(
+  sortBy: "id" | "title" | "artist" | "bpm" = "id",
+  sortOrder: "asc" | "desc" = "asc",
+  query: string
+) {
+  let collection = db.songs.orderBy(sortBy)
+  if (sortOrder == "desc") collection = collection.reverse()
+  collection = collection.filter(song => {
+    return song.title.includes(query) || song.artist.includes(query)
+  })
+  return collection.toArray()
 }

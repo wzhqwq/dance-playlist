@@ -1,12 +1,13 @@
 import { useMemo, useState } from "react"
 import { LogDropZone } from "./LogDropZone"
-import { DanceRecordRaw, record, SongOrder, useRecord, useRecords } from "./record"
+import { record, useRecord, useRecords } from "./record"
 import { LocalSongEntry } from "./LocalSongEntry"
 import cx from "classnames"
-
-import "./DanceHistory.css"
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6"
 import dayjs from "dayjs"
+import { SongOrder, DanceRecordRaw } from "./types"
+
+import "./DanceHistory.css"
 
 export function DanceHistory() {
   const { data: records } = useRecords()
@@ -157,9 +158,13 @@ function SongsPanel({ orders, onChange, hideDelete = false }: SongPanelProps) {
         <LocalSongEntry
           key={order.song.id + order.startTime.toISOString()}
           order={order}
-          onDelete={hideDelete ? undefined :() => {
-            onChange(orders.filter(o => o !== order))
-          }}
+          onDelete={
+            hideDelete
+              ? undefined
+              : () => {
+                  onChange(orders.filter(o => o !== order))
+                }
+          }
           onChange={newSong => {
             onChange(
               orders.map(o =>
