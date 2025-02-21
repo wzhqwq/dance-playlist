@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.65.1",
     "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
     "fuse.js": "^7.0.0",
     "jotai": "^2.11.2",
     "nanoid": "^5.0.9",

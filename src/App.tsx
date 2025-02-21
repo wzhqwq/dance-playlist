@@ -8,6 +8,7 @@ import { useState } from "react"
 import { SongClip } from "./songClip/SongClip"
 import { FaClockRotateLeft, FaFilm, FaMagnifyingGlass } from "react-icons/fa6"
 import { DanceHistory } from "./db/DanceHistory"
+import "./dayjs"
 
 function App() {
   const [tab, setTab] = useState(0)
@@ -25,6 +26,7 @@ function App() {
         </button>
         <button className={tab === 1 ? "active" : ""} onClick={() => setTab(1)}>
           <FaMagnifyingGlass />
+          <span className="badge">PYPY</span>
         </button>
         <button className={tab === 2 ? "active" : ""} onClick={() => setTab(2)}>
           <FaClockRotateLeft />

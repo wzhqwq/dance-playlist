@@ -6,6 +6,7 @@ import cx from "classnames"
 
 import "./DanceHistory.css"
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6"
+import dayjs from "dayjs"
 
 export function DanceHistory() {
   const { data: records } = useRecords()
@@ -23,7 +24,7 @@ export function DanceHistory() {
       {newSongOrders.length > 0 ? (
         <div className="new-record">
           <div className="new-record-header">
-            <span>新舞蹈记录{newDanceTime?.toLocaleString()}</span>
+            <span>新舞蹈记录{dayjs(newDanceTime).format("YYYY-MM-DD HH:mm")}</span>
             <button
               onClick={() => {
                 record(newDanceTime!, newSongOrders).then(() => {
@@ -60,7 +61,7 @@ function RecordAccordion({ record }: RecordAccordion) {
   return (
     <div className="record">
       <div className="record-header" onClick={() => setExpanded(!expanded)}>
-        <span>舞蹈记录{record.danceTime.toLocaleString()}</span>
+        <span>舞蹈记录{dayjs(record.danceTime).format("YYYY-MM-DD HH:mm")}</span>
         {expanded ? <FaAngleDown /> : <FaAngleUp />}
       </div>
       {recordFull && expanded && (

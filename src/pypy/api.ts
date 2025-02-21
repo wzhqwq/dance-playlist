@@ -46,7 +46,7 @@ export async function getSongs() {
   const response = await fetch(songListUrl)
   const data = (await response.json()) as SongListResponse
   const groups = data.groups.map(group => pypyGroupMap[group] || group)
-  return {
+  const result = {
     songs: data.songs.map(song => {
       let group = groups[song.group]
       if (group == "其他") {
@@ -65,6 +65,9 @@ export async function getSongs() {
     }),
     updatedAt: data.updatedAt,
   } as SongList
+  localStorage.setItem("pypySongs", JSON.stringify(result))
+  localStorage.setItem("pypySongsUpdatedAt", Date.now().toString())
+  return result
 }
 
 export function usePyPySongs() {
@@ -72,7 +75,21 @@ export function usePyPySongs() {
     queryKey: ["songs"],
     queryFn: getSongs,
     gcTime: Infinity,
-    staleTime: Infinity,
+    staleTime: 3600 * 1000,
+    initialData: () => {
+      const pypySongsStr = localStorage.getItem("pypySongs")
+      if (!pypySongsStr) {
+        return undefined
+      }
+      return JSON.parse(pypySongsStr) as SongList
+    },
+    initialDataUpdatedAt: () => {
+      const pypySongsStr = localStorage.getItem("pypySongsUpdatedAt")
+      if (!pypySongsStr) {
+        return undefined
+      }
+      return parseInt(pypySongsStr)
+    }
   })
 }
 
