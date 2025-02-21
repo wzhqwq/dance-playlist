@@ -97,6 +97,9 @@
 .group-fd {
   background: linear-gradient(90deg, #ed158f 0%, #ec2f6b 47%, #ed6d46 100%);
 }
+.group-lr {
+  background: linear-gradient(90deg, #945388 0%, #8e9bbc 100%);
+}
 .group-other {
   background: rgb(107, 107, 107);
 }
@@ -114,10 +117,13 @@
   background: linear-gradient(90deg, #ffb171 0%, #ffbf3e 100%);
 }
 .light .group-gdf {
-  background: linear-gradient(90deg, #ffada1 0%, #ffbf8b 100%);
+  background: linear-gradient(90deg, #ff9090 0%, #ffbf8b 100%);
 }
 .light .group-fd {
-  background: linear-gradient(90deg, #ff91e5 0%, #ff8e9e 47%, #ff9e7a 100%);
+  background: linear-gradient(90deg, #ffa1e9 0%, #ff9aa7 47%, #ffa584 100%);
+}
+.light .group-lr {
+  background: linear-gradient(90deg, #edcee7 0%, #c6d1eb 100%);
 }
 .light .group-other {
   background: rgb(199, 199, 199);
