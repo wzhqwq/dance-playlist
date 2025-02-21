@@ -4,4 +4,5 @@ import { Song } from "./song"
 
 export const playingVideoSrcAtom = atom<string | null>()
 export const songClipAtom = atomWithStorage<Song[]>("songClip", [])
-export const animationTypeAtom = atom(0)
+export const animationTypeAtom = atom<"none" | "show-hide" | "show-each">("none")
+export const animationModeAtom = atom<"preview" | "record" | "">("")

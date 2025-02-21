@@ -1,0 +1,15 @@
+.log-drop-zone {
+  border: 2px dashed #333;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  gap: 10px;
+  min-width: 300px;
+}
+
+.log-drop-zone.drag-over {
+  border-color: #ccc;
+}

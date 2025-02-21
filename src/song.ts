@@ -1,5 +1,5 @@
 export const convertToSeconds = (timestamp: string) => {
-  const [minutes, seconds] = timestamp.split(":").map(str => parseInt(str))
+  const [minutes, seconds] = timestamp.split(/[:.]/).map(str => parseInt(str))
   return minutes * 60 + seconds
 }
 export const convertToTimestamp = (seconds: number) => {

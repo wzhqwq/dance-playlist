@@ -1,0 +1,49 @@
+.dance-history {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.new-record {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.new-record-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.songs-header {
+  display: flex;
+  gap: 8px;
+}
+
+.record {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.record .songs {
+  padding: 4px;
+}
+.record-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+}
+.record-header:hover {
+  background-color: #333;
+  cursor: pointer;
+}

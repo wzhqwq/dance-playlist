@@ -1,17 +1,12 @@
 import { useMemo, useState } from "react"
-import { getSongs } from "./api"
-import { useQuery } from "@tanstack/react-query"
+import { usePyPySongs } from "./api"
 import { PyPySongEntry } from "./Song"
 import Fuse from "fuse.js"
 
 import "./Search.css"
 
 export function PyPySearch() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["songs"],
-    queryFn: getSongs,
-  })
-
+  const { data, isLoading } = usePyPySongs()
   const [searchKey, setSearchKey] = useState("")
 
   const fuse = useMemo(() => {
