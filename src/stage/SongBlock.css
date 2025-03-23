@@ -79,61 +79,6 @@
   font-size: 12px;
   padding: 4px 12px;
 }
-.group-tml {
-  background: rgb(190, 0, 0);
-}
-.group-fm {
-  background: linear-gradient(90deg, #587b33 0%, #5c6824 100%);
-}
-.group-jd {
-  background: linear-gradient(90deg, #ba22a0 0%, #ed15a1 100%)
-}
-.group-ml {
-  background: linear-gradient(90deg, #c65f0a 0%, #db960b 100%);
-}
-.group-gdf {
-  background: linear-gradient(90deg, #d93319 0%, #cb6a1b 100%);
-}
-.group-fd {
-  background: linear-gradient(90deg, #ed158f 0%, #ec2f6b 47%, #ed6d46 100%);
-}
-.group-lr {
-  background: linear-gradient(90deg, #945388 0%, #8e9bbc 100%);
-}
-.group-ba {
-  background: linear-gradient(90deg, #b53062 0%, #e25088 80%, #eacbda 100%);
-}
-.group-other {
-  background: rgb(107, 107, 107);
-}
-
-.light .group-tml {
-  background: rgb(255, 135, 135);
-}
-.light .group-fm {
-  background: linear-gradient(90deg, #abeb67 0%, #d6f160 100%);
-}
-.light .group-jd {
-  background: linear-gradient(90deg, #ff89eb 0%, #f68fbe 100%)
-}
-.light .group-ml {
-  background: linear-gradient(90deg, #ffb171 0%, #ffbf3e 100%);
-}
-.light .group-gdf {
-  background: linear-gradient(90deg, #ff9090 0%, #ffbf8b 100%);
-}
-.light .group-fd {
-  background: linear-gradient(90deg, #ffa1e9 0%, #ff9aa7 47%, #ffa584 100%);
-}
-.light .group-lr {
-  background: linear-gradient(90deg, #edcee7 0%, #c6d1eb 100%);
-}
-.light .group-ba {
-  background: linear-gradient(90deg, #ff9dbf 0%, #ffbad2 100%);
-}
-.light .group-other {
-  background: rgb(199, 199, 199);
-}
 
 .animation-showup .song-block {
   animation: showup 0.5s ease-out forwards;

@@ -1,4 +1,3 @@
-import "./App.css"
 import { PyPySearch } from "./pypy/Search"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { queryClient } from "./queryClient"
@@ -9,6 +8,9 @@ import { SongClip } from "./songClip/SongClip"
 import { FaClockRotateLeft, FaFilm, FaMagnifyingGlass } from "react-icons/fa6"
 import { DanceHistory } from "./db/DanceHistory"
 import "./dayjs"
+
+import "./App.css"
+import "./group.css"
 
 function App() {
   const [tab, setTab] = useState(0)

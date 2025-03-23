@@ -7,6 +7,7 @@ export const groupColorMap = {
   "Fit Dance": "group-fd",
   "Lisa Rhee": "group-lr",
   "Bloom Aile": "group-ba",
+  "APOKI": "group-apoki",
   其他: "group-other",
 } as Record<string, string>
 
@@ -36,4 +37,5 @@ export const groupShortMap = {
   "Fit Dance": "FD",
   "Lisa Rhee": "Lisa",
   "Bloom Aile": "BA",
+  "APOKI": "APOKI",
 } as Record<string, string>

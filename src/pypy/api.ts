@@ -53,6 +53,9 @@ export async function getSongs() {
         if (song.name.includes("Lisa Rhee")) {
           group = "Lisa Rhee"
         }
+        if (song.name.includes("APOKI")) {
+          group = "APOKI"
+        }
         if (song.name.includes("블룸엘") || song.name.includes("BloomAile")) {
           group = "Bloom Aile"
         }
