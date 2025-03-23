@@ -53,8 +53,8 @@ export function LogDropZone({ onDrop }: LogDropZoneProps) {
       onDragLeave={onDragLeave}
       onDrop={onDropHandler}
     >
-      <span>Drop VRChat log file here</span>
-      {processing && <span>Processing...</span>}
+      <span>放入VRChat日志文件（请勿改名）</span>
+      {processing && <span>处理中...</span>}
     </div>
   )
 }

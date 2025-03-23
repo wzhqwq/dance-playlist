@@ -3,6 +3,13 @@
   overflow-y: auto;
 }
 
+.history-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
 .new-record {
   display: flex;
   flex-direction: column;

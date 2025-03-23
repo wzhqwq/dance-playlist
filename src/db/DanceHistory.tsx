@@ -8,6 +8,32 @@ import dayjs from "dayjs"
 import { SongOrder, DanceRecordRaw } from "./types"
 
 import "./DanceHistory.css"
+import db from "./db"
+
+async function exportAll() {
+  const songs = await db.songs.toArray()
+  const records = await db.records.toArray()
+
+  const a = document.createElement("a")
+  const blob = new Blob([JSON.stringify({ songs, records })], { type: "application/json" })
+  a.href = URL.createObjectURL(blob)
+  a.download = "dance-history.json"
+  a.click()
+}
+
+async function importAll(file: File) {
+  const reader = new FileReader()
+  reader.onload = async () => {
+    const { songs, records } = JSON.parse(reader.result as string)
+    await db.transaction("rw", ["songs", "records"], async () => {
+      await db.songs.clear()
+      await db.songs.bulkAdd(songs)
+      await db.records.clear()
+      await db.records.bulkAdd(records)
+    })
+  }
+  reader.readAsText(file)
+}
 
 export function DanceHistory() {
   const { data: records } = useRecords()
@@ -16,6 +42,23 @@ export function DanceHistory() {
 
   return (
     <div className="dance-history">
+      <div className="history-header">
+        <button onClick={exportAll}>导出</button>
+        <button className="file-input-btn">
+          导入
+          <input
+            type="file"
+            accept=".json"
+            onChange={e => {
+              if (e.target.files && e.target.files.length > 0) {
+                if (confirm("导入会覆盖现有数据，确定要继续吗？")) {
+                  importAll(e.target.files[0])
+                }
+              }
+            }}
+          />
+        </button>
+      </div>
       <LogDropZone
         onDrop={(orders, date) => {
           setNewSongOrders(orders)
