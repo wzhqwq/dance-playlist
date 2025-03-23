@@ -5,13 +5,13 @@ import { SongOrder } from "./types"
 // 2025.02.09 16:15:28 Log        -  [VRCX] VideoPlay(PyPyDance) "http://jd.pypy.moe/api/v1/videos/4068.mp4",0,213,"4068 : [KPOP] NCT DREAM - When I’m With You (soney113)"
 // $1: time, $2: roomName, $3: url, $4: startTime, $5: endTime, $6: title
 const videoPlayRegex =
-  /(\d{4}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}).*VideoPlay\(([^)]+)\) "([^"]+)",([^,]+),([^,]+),"([^"]+)"\n/g
+  /(\d{4}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}).*VideoPlay\(([^)]+)\) "([^"]+)",([^,]+),([^,]+),"([^"]+)"/g
 
 // http://jd.pypy.moe/api/v1/videos/4068.mp4
 // /(\d+)\.mp4/
 const pypyIdRegex = /\/(\d+)\.mp4/
 
-const youtubeIdRegex = /v=([^&]+)/
+const youtubeIdRegex = /(?:v=|youtu\.be\/)([^&]+)/
 
 // 4068 : [KPOP] NCT DREAM - When I’m With You (soney113)
 // $1: title $2: username
@@ -31,6 +31,8 @@ export async function parseLog(log: string) {
       title = titleWithUsernameMatch[1]
       username = titleWithUsernameMatch[2]
     }
+
+    console.log(url)
 
     let song = await parsePyPy(title, url, result.at(-1)?.song.id ?? "")
     if (!song) {

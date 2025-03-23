@@ -21,11 +21,9 @@ export function Stage() {
     setTimeout(() => {
       if (animationType === "show-each") {
         setSceneSize(getShowEachRect())
-      }
-      else if (animationType === "show-hide") {
+      } else if (animationType === "show-hide") {
         setSceneSize(getShowAndHideRect())
-      }
-      else {
+      } else {
         setSceneSize([0, 0])
       }
     }, 0)
@@ -43,7 +41,14 @@ export function Stage() {
             // @ts-expect-error outdated type definition
             preferCurrentTab: true,
           })
-          // const [track] = stream.getTracks()
+          const [track] = stream.getTracks()
+          // Associate captureTarget with a new RestrictionTarget
+          const captureTarget = document.querySelector(".songs-stage")
+          // @ts-expect-error outdated type definition
+          const restrictionTarget = await RestrictionTarget.fromElement(captureTarget)
+          // Start restricting the self-capture video track using the RestrictionTarget.
+          // @ts-expect-error outdated type definition
+          await track.restrictTo(restrictionTarget);
 
           const recorder = new MediaRecorder(stream, {
             mimeType: 'video/mp4; codecs="avc1.42E01E"',
