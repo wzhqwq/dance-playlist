@@ -21,6 +21,7 @@ export interface SongOrder {
   startTime: Date
 }
 export type SongOrderRaw = Omit<SongOrder, "song"> & { song: string }
+export type SongOrderJson = Omit<SongOrderRaw, "startTime"> & { startTime: Date | string }
 
 export interface DanceRecord {
   id: string
@@ -28,5 +29,4 @@ export interface DanceRecord {
   orders: SongOrder[]
 }
 export type DanceRecordRaw = Omit<DanceRecord, "orders"> & { orders: SongOrderRaw[] }
-
-
+export type DanceRecordJson = Omit<DanceRecordRaw, "danceTime"> & { danceTime: Date | string }

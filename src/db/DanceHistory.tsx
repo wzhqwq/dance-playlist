@@ -5,7 +5,7 @@ import { LocalSongEntry } from "./LocalSongEntry"
 import cx from "classnames"
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6"
 import dayjs from "dayjs"
-import { SongOrder, DanceRecordRaw } from "./types"
+import { SongOrder, DanceRecordRaw, DanceRecordJson, SongOrderJson } from "./types"
 
 import "./DanceHistory.css"
 import db from "./db"
@@ -25,6 +25,13 @@ async function importAll(file: File) {
   const reader = new FileReader()
   reader.onload = async () => {
     const { songs, records } = JSON.parse(reader.result as string)
+    records.forEach((record: DanceRecordJson) => {
+      record.danceTime = new Date(record.danceTime)
+      record.orders.forEach((order: SongOrderJson) => {
+        order.startTime = new Date(order.startTime)
+      })
+    })
+
     await db.transaction("rw", ["songs", "records"], async () => {
       await db.songs.clear()
       await db.songs.bulkAdd(songs)
